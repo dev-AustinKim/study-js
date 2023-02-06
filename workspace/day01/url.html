@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL에 JS 코드 작성</title>
+</head>
+<body>
+    <h3>링크의 href에 자바스크립트 코드 작성</h3>
+    <hr>
+    <!-- a태그 내에서 이동을 시킬 것이 아니라면 void(0)을 쓰면 이벤트를 막을 수 있다. -->
+    <!-- a태그와 img태그 간의 관계를 형제자매 관계 sibling -->
+    
+    <!-- nextSibling, nextElementSibling 모두 같은 노드 레벨의 다음 값을 가져옵니다. 
+        snextSibling은 공백이든, 텍스트든 가리지 않고 다음에 있는 것을 가져오게 되고, 
+        nextElementSibling 은 Element(요소)만 가져오게 됩니다. -->
+    <a href="javascript:void(0)" onclick="changeImage(this.nextElementSibling)">클릭해보세요~!</a>
+    <img class="on" src="image/icon4.png">
+</body>
+<script src="script.js"></script>
+</html>
