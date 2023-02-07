@@ -20,7 +20,7 @@
 // 기차 객체를 만들고 각 손님들을 프로퍼티로 선언한다.
 
 
-let train = { }
+let train = {}
 
 function aboard(name, age, rank) {
     var user = new User(name, age, rank);
