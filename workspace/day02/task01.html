@@ -1,0 +1,57 @@
+   <!-- 
+        마우스를 올려보세요
+        ----------------------------------------(hr)
+        여기에 마우스를 올리면 배경색이 노란색으로 변합니다.
+
+        ※ 배경색 변경은 노란색으로 하고, 초기 배경색은 흰색으로 한다.
+        ※ 태그이름.style.background = '색이름';
+     -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 1</title>
+</head>
+<body>
+    <p onmouseover="over(this)" onmouseout="out(this)">마우스를 올려보세요</p>
+    <hr>
+</body>
+
+<script>
+    function over(object){
+        object.style.backgroundColor = "yellow";
+    }
+    function out(obj){
+        object.style.backgroundColor = "white";
+    }
+</script>
+</html> -->
+
+<!-- 강사님 버전 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 1</title>
+</head>
+<body>
+    <h2>마우스를 올려보세요</h2>
+    <hr>
+    <!-- <div onmouseover="document.body.style.backgroundColor='yellow'" onmouseout="document.body.style.backgroundColor='white'">
+        여기에 마우스를 올리면 배경색이 노란색으로 변합니다.
+    </div> -->
+    <div onmouseover="changeBackground('yellow')" onmouseout="changeBackground('white')">
+        여기에 마우스를 올리면 배경색이 노란색으로 변합니다.
+    </div>
+</body>
+<script>
+    function changeBackground(color){
+        document.body.style.backgroundColor = color;
+    }
+</script>
+</html>
