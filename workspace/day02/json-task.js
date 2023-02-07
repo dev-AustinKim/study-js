@@ -9,6 +9,7 @@ with(console){
     log(product.name);
     log(product.price);
 }
+
 productJSON = JSON.stringify(product);
 
 console.log(productJSON);

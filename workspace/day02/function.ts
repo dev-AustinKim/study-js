@@ -41,6 +41,8 @@ function add(...numbers: number[]) {
 
 intro("김동한", 26, "남자", "졸업생")
 
+
+// 가변인자는 몇개가 들어올 지 모르니까 다른 매개변수랑 같이 받는다면 몇개를 받을지 아는 매개변수를 앞에, 가변인자를 뒤에 써준다.
 function intro(name: string, ...args: any[]) {
     console.log(`이름: ${name}`)
     for (let i = 0; i < args.length; i++) {
