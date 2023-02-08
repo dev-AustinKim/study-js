@@ -31,3 +31,10 @@ file.readFile('product.json', 'utf-8', function(error, content) {
 
 
 // 강사님 버전
+// let file = require('fs');
+// let product = {name: '지우개', price: 300, stock: 35000};
+
+// // file.writeFile('product.json', JSON.stringify(product), 'utf-8', error => {});
+// file.readFile('product.json', 'utf-8', (error, content) => {
+//     console.log(JSON.parse(content));
+// });
