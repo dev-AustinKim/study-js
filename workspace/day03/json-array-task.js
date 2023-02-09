@@ -114,9 +114,48 @@ let productsJSON = JSON.stringify(products);
 // shop.json에 변환된 JSON 형식의 문자열을 작성한다.
 // shop.json을 읽어온 뒤 Array 객체로 변환한다.
 // 총 가격과 총 재고 수를 Object에 담은 뒤 sum.json으로 출력한다.
+// let file = require('fs');
+
+// file.writeFile('shop.json', productsJSON, 'utf-8', function(error) {
+//     if(error) {
+//         console.log(error)
+//     } else {
+//         console.log("성공!");
+//     }
+// });
+
+// var arr;
+
+// file.readFile('shop.json', 'utf-8', function(error, content) {
+//     if(error) {
+//         console.log(error);
+//     } else {
+//         arr = JSON.parse(content);
+//         var result = {
+//             totalPrice: 0,
+//             totalStock: 0
+//         };
+//         arr.forEach(e => {
+//             result.totalPrice += e.price;
+//             result.totalStock += e.stock;
+//         });
+
+//         file.writeFile('sum.json', JSON.stringify(result), 'utf-8', function(error) {
+//             if(error) {
+//                 console.log(error)
+//             } else {
+//                 console.log("성공!");
+//             }
+//         });
+//     }
+// });
+
+// -------------------------------------------------------------------------------------------------------
+
+
 let file = require('fs');
 
-file.writeFile('shop.json', productsJSON, 'utf-8', function(error) {
+file.writeFile('shop2.json', productsJSON, 'utf-8', function(error) {
     if(error) {
         console.log(error)
     } else {
@@ -124,29 +163,77 @@ file.writeFile('shop.json', productsJSON, 'utf-8', function(error) {
     }
 });
 
-var arr;
+let arr;
+let result = {
+    totalPrice: 0,
+    totalStock: 0
+};
 
-file.readFile('shop.json', 'utf-8', function(error, content) {
+file.readFile('shop2.json', 'utf-8', function(error, content) {
     if(error) {
         console.log(error);
-    } else {
-        arr = JSON.parse(content);
-        var result = {
-            totalPrice: 0,
-            totalStock: 0
-        };
-        arr.forEach(e => {
-            result.totalPrice += e.price;
-            result.totalStock += e.stock;
-        });
+    } 
+    arr = JSON.parse(content);    
+    
+    console.log(arr);
 
-        file.writeFile('sum.json', JSON.stringify(result), 'utf-8', function(error) {
-            if(error) {
-                console.log(error)
-            } else {
-                console.log("성공!");
-            }
-        });
-    }
+    // arr.map(v => v.price).forEach(e => result.totalPrice += e/* console.log(e) */);
+    // arr.map(v => v.stock).forEach(e => {result.totalStock += e;});
+
+    arr.forEach(e => {
+        result.totalPrice += e.price;
+        console.log(result.totalPrice);
+        result.totalStock += e.stock;
+    });
+    
+    // 여긴 잘댐
+    console.log(result);
 });
 
+// .여기서 실행하면 안됌 => 비동기적이라 function안에 file을 넣어 주거나 file안에 console.log(result)를 써준다.
+// console.log(result);
+
+// 강사님 버전
+// 상품명, 가격, 재고를 프로퍼티로 담고 있는 Object를 3개 선언한다.
+// 3개의 Object를 1개의 Array 객체에 모두 담는다.
+// JSON으로 변경시킨다.
+
+// shop.json에 변환된 JSON 형식의 문자열을 작성한다.
+// shop.json을 읽어 온 뒤 Array 객체로 변환한다.
+// 총 가격과 총 재고 수를 Object에 담은 뒤 sum.json으로 출력한다.
+// let file = require("fs");
+// function Product(name, price, stock) {
+//     this.name = name;
+//     this.price = price;
+//     this.stock = stock;
+// }
+
+// let products = [
+//     new Product('참후레쉬', 1500, 90),
+//     new Product('참후레쉬', 1500, 60),
+//     new Product('참후레쉬', 1500, 30)
+// ];
+
+// let productsJSON = JSON.stringify(products);
+// file.writeFile('shop.json', productsJSON, 'utf-8', error => {});
+// file.readFile('shop.json', 'utf-8', (error, contents) => {
+//     let products = JSON.parse(contents);
+//     let totalPrice = products.map(product => product.price).reduce((totalPrice, price) => totalPrice + price);
+//     let totalStock = products.map(product => product.stock).reduce((totalStock, stock) => totalStock + stock);
+//     let sum = {totalPrice: totalPrice, totalStock: totalStock};
+//     let sumJSON = JSON.stringify(sum);
+//     file.writeFile('sum.json', sumJSON, 'utf-8', error => {});
+// });
+
+// 각 상품별 총 가격을 구한 뒤 출력한다.
+// callback 함수를 사용한다.
+// 외부에서는 JSON 데이터가 전달된다.
+// function getTotals(productsJSON, callback) {
+//     let products = JSON.parse(productsJSON);
+//     let totals = products.map(product => product.price * product.stock);
+//     if(callback){
+//         callback(totals);
+//     }
+// }
+
+// getTotals(productsJSON, totals => {totals.forEach(total => console.log(total))});
