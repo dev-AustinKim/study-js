@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클릭 이벤트</title>
+</head>
+<body>
+    <h3>CSS 스타일 동적 변경</h3>
+    <hr>
+    <p>클릭하세요.</p>
+    <!-- <button></button>와 <input type="button" value="">는 같다고 볼 수 있다. -->
+    <input type="button" value="스타일 변경"> <!-- input:button -->
+</body>
+<script>
+    const input = document.querySelector("input[type=button]"); /* 버튼인 애를 가져온다. */
+    const p = document.querySelector("p");
+    input.addEventListener("click", function() {
+        this.style.background = 'yellow';
+        p.style.fontsize = "30px";
+        p.style.border = "3px dashed red";
+        p.style.width = "200vw"; /* vw는 부모요소가 아닌 브라우저 기준의 %이다. px는 부모 기준의 %이다. */
+    });
+</script>
+</html>

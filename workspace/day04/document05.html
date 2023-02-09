@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 동적으로 생성, 삽입, 삭제</title>
+</head>
+<body>
+    <p>DOM 트리에 동적으로 객체를 삽입할 수 있다.</p>
+    <p>createElement("태그명"), appendChild("태그 객체"), removeChile("태그 객체")</p>
+    <p>위 3개의 메소드를 이용해서 새로운 객체를 생성, 삽입, 삭제한다.</p>
+
+    <!-- 누를때마다 script의 createDIV()를 실행해준다. -->
+    <a href="javascript:createDIV()">DIV 생성</a>
+</body>
+<script>
+    globalThis.count = 0;
+
+    function createDIV() {
+        let colors = ['yellow', 'green', 'red', 'pink', 'orange'];
+        let i = Math.floor(Math.random()*colors.length);
+        const newDiv = document.createElement("div");
+        newDiv.innerHTML = "새로 생성된 div입니다.";
+        newDiv.style.backgroundColor = colors[i];
+        // 부모 노드에 자식 노드를 추가하는 메소드
+        document.body.appendChild(newDiv);
+
+        // newDiv의 부모에게 가서(parentElement) 너의 자식을 지우라고 한다.(removeChild)
+        // 누구를 지우냐면 그건 (newDiv)이다.
+        newDiv.addEventListener("click", e => {newDiv.parentElement.removeChild(newDiv)});
+        // newDiv.onclick = e => {newDiv.parentElement.removeChild(newDiv)};
+    }
+
+    
+    
+</script>
+</html>

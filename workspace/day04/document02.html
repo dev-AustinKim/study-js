@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>name을 이용한 선택</title>
+</head>
+<body>
+    <h1>name 속성을 이용한 선택</h1>
+    <!-- document에서 form태그는 바로 객체로 만든다. 따라서 getelements로 name이 joinForm인 애를 받아올 필요없이 
+        script에서 const form = document.joinForm; 을 하면 DOM 객체가 만들어진다.-->
+    <form name = "joinForm">
+        <div>
+            <!-- value="kdh1234"가 이미 들어가 있는 상태. value에 값을 주면 value가 이미 들어가 있는 채로 페이지가 나온다.-->
+            <input type="text" name="id" placeholder="아이디">
+        </div>
+        <div>
+            <input type="text" name="password" placeholder="패스워드" value="1234">
+        </div>
+        <div>
+            <label> <!-- label로 감싸주지 않으면 체크박스에 정확히 클릭해야해서 힘들다. BUT label로 감싸주면 그 근처만 클릭해도 클릭이 되어서 편하다. -->
+                <input type="checkbox" name="language" value="java"> JAVA
+            </label>
+            <label> 
+                <input type="checkbox" name="language" value="java"> C
+            </label>
+            <label> 
+                <input type="checkbox" name="language" value="java"> Python
+            </label>
+        </div>
+    </form>
+</body>
+<script>
+    const checkboxs = document.getElementsByName("language");
+    const form = document.joinForm;
+    // console.log(checkboxs);
+
+    if(!form.id.value) {
+            alert("아이디를 입력해주세요");
+        }  
+
+    // 체크가 되어있는 상태인지를 확인
+    checkboxs.forEach(checkbox => {
+        // console.log(checkbox);
+
+        // 체크 박스를 다 체크해주는 메소드. (checked는 HTML에서 쓰지 말고 JS에서 쓰자!)
+        // checkbox.checked = true; 
+
+        // 유효성 검사를 위해 form.id.value로 가져온다.
+        // console.log(form.id.value);
+
+
+          
+    });
+</script>
+</html>

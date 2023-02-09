@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포커스 이벤트</title>
+</head>
+<body>
+    <form name = "joinForm">
+        <div>
+            <!-- autocomplete = "off"는 이전에 입력했던 기록이 안나온다. 자동완성 기능을 끈 것. -->
+            <input type="text" name="id" placeholder="아이디" autocomplete="off">
+        </div>
+        <p id="result"></p>
+        <div>
+            <input type="password" name="password" placeholder="비밀번호">
+        </div>    
+    </form>
+</body>
+<script>
+    const input = joinForm.id;
+    const result = document.querySelector("p#result");
+
+    /* blur는 포커스를 읽을 때 focus는 포커스를 받을 때 발생한다.*/
+    input.addEventListener("blur", function() {
+        if(!this.value) {
+            result.innerHTML = "아이디를 입력해주세요";
+            result.style.color = "red";
+            this.focus(); //(이 this는 input이다.)
+        } else {
+            result.innerHTML = "사용 가능한 아이디 입니다.";
+            result.style.color = "blue";
+        }
+    });
+</script>
+</html>
