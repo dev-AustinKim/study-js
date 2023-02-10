@@ -1,0 +1,41 @@
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color:yellow;
+    text-align: center;
+    line-height: 100px;
+    z-index: -1;
+}
+
+
+fieldset {
+    display: block;
+    text-align: center;
+    border-style: dashed none none none;
+    border-width: 10px;
+}
+
+legend {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.result {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+hr {
+    height: 3px;
+    background-color: black;
+    bottom: 0;
+}
+
+button {
+    background-color: purple;
+    color: white;
+    width: 80px;
+    height: 40px;
+}
