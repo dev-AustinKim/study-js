@@ -68,6 +68,7 @@
             let name = e.target.files[0].name;
             fileName.innerHTML = name;
             closeSpan.style.display = "inline-block";
+            // 여기서 this는 file.addEventListener를 한 결과다. 즉, day01을 올렸으면 그 day01이 여기서 this가 되는 것이다.
             this.style.display = 'none';
             let reader = new FileReader();
             reader.readAsDataURL(e.target.files[0]);

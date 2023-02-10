@@ -23,6 +23,9 @@
     const result = document.querySelector("p#result");
 
     /* blur는 포커스를 읽을 때 focus는 포커스를 받을 때 발생한다.*/
+    /* 아이디에서 비밀번호로 넘어갈 때가 blur 상황인데 아이디에 아무것도 안적고 비밀번호로 넘어간다면
+    this.focus()를 사용해서 다시 커서가 아이디로 오게 해준다.
+     */
     input.addEventListener("blur", function() {
         if(!this.value) {
             result.innerHTML = "아이디를 입력해주세요";
