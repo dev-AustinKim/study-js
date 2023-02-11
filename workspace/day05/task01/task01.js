@@ -6,7 +6,7 @@ globalThis.temp;
 
 function confirm() {
     const input = document.querySelector("input").value;
-    const trs = document.querySelectorAll("fieldset");
+    const trs = document.querySelectorAll("tbody tr");
     let check = false;
 
     if(globalThis.temp) {
@@ -15,7 +15,7 @@ function confirm() {
     }
 
     trs.forEach(tr => {
-        let td = trs.firstElementChild;
+        let td = tr.firstElementChild;
         if(td.innerHTML == input) {
             check = true;
             globalThis.temp = tr;
