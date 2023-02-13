@@ -23,6 +23,7 @@
     // find : 안에서 찾는다. 즉, 자식에서 찾는다.
     console.log($ul.find("li#lamborghini").text()); 
 
+    // eq(n) : n번째 인덱스 번호에 해당하는 요소를 리턴하는 메소드
     // closest : 선택자가 여러 개 있을 때 나와 가장 가까운 곳에서 찾는다.
     $ul.closest("body").css("background-color", "orange").find(".car").children().eq(1).text("포르쉐");
 
