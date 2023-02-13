@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 기초 예제2</title>
+</head>
+<body>
+    <ul class="car">
+        <li>벤틀리</li>
+        <li>머스탱</li>
+        <li id=""lamborghini>람보르기니</li>
+    </ul>
+    <!-- jQuery는 두가지만 안다면 못 찾아 갈 곳이 없다. find와 closest만 알자. -->
+</body>
+<script src ="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+    const $lists = $("li");
+    const $ul = $("ul.car");
+    const $li = $("#lamborghini");
+
+    // find : 안에서 찾는다. 즉, 자식에서 찾는다.
+    console.log($ul.find("li#lamborghini").text()); 
+
+    // closest : 선택자가 여러 개 있을 때 나와 가장 가까운 곳에서 찾는다.
+    $ul.closest("body").css("background-color", "orange").find(".car").children().eq(1).text("포르쉐");
+
+    // $li.prev() : 이전 값을 가져온다. 즉 포르쉐(머스탱)이 출력.
+    console.log($li.prev().text());
+
+    // 이전 값 -> 다음 값이니까 즉, 나의 값을 가져온다
+    console.log($li.prev().next().text());
+
+
+    // 자식태그 다 가져오자.
+    // $ul.children();
+    // $ul.children().first().text("페라리");
+
+    // css 바꿀 때는 css() 메소드를 사용하자.
+    // $ul.parent().css('background-color', 'yellow');
+    // console.log($ul.parent().css('background-color'));
+    // 처음에 JS로 가져오게 되어서 $로 묶어주면서 jQuery로 만들어줌
+    // console.log($($ul.children()[2]).text);
+
+    // 바로 jQuery로 가져오게 된다.
+    // console.log($ul.children.last().text());
+    // console.log($ul.children.eq(2).text());
+    // $ul.children().last().remove();
+    // $ul.append("<li>벤틀리</li>");
+
+
+    // 얘는 다시 설명듣자.
+    // console.log($ul.attr('class'));
+
+    // 변경 후 바로 사용할 수 있다.
+    // $ul.attr('class','super-car').children();
+
+</script>
+</html>

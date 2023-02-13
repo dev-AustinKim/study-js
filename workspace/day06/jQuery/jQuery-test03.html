@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 기초 예제3</title>
+    <style>
+        input[type=checkbox] {
+            -webkit-appearance: none;
+            position: relative;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            border: 1px solid #eeeeee;
+            border-radius: 2px;
+            background: #fbfbfb;
+        }
+
+        input[type=checkbox]:checked {
+            background-color: red;
+            color: white;
+        }
+
+        input[type="checkbox"]:checked::before { /* 체크 모양 */
+            content: "\2713";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            line-height: 1px;
+            border-radius: 2px;
+            transform: scale(1) translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+<body>
+    <form action="" name="myForm">
+        <div>
+            <label>
+                서비스 이용약관 동의
+                <input type="checkbox" name="term1" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                광고 수신 동의
+                <input type="checkbox" name="term2" class="term">
+            </label>
+        </div>
+        <div>
+            <label>
+                개인 정보 이용약관 동의
+                <input type="checkbox" name="term3" class="term">
+            </label>
+        </div>
+    </form>
+</body>
+<script src ="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script>
+    // DOM 객체는 const로 선언
+    const $checkboxes = $(".term");
+
+    // checkboxes가 iterator이다. 
+    // each 문에선 항상 i,checkbox는 JS로 가져오기 때문에 $로 묶어주면서 jQuery로 만들어줘야 한다.
+    $checkboxes.each((i,checkbox) => {
+        // prop : JS의 프로퍼티를 가져와서 수정할 수 있다.
+        // console.log($(checkbox).prop('checked', true));
+
+
+        // is : "checkbox에서 checked라는 속성이 있다면" 이라는 뜻.
+        // 즉, 선택한 요소 중 하나가 is( 선택한 Element )와 일치하는지 확인
+        // $("선택요소").is("비교할 요소 또는 표현식);
+        if($(checkbox).is(':checked')) {
+            console.log("체크됨");
+        }
+    });
+</script>
+</html>
