@@ -41,12 +41,12 @@
 
     $all.on("click", function(){
         // prop()은 내가 원하는 프로퍼티의 속성값(checkboxes에서 checked를 어떻게 표시헀는지)을 가져오는 것이다.
+        // prop(내가 원하는 속상값, 바꿔줄 값)
         $checkboxes.prop('checked', $(this).is(":checked"));
     });
     
     $checkboxes.click(function(){
         $all.prop("checked", $checkboxes.filter(":checked").length == 3);
     });
-
 </script>
 </html>
